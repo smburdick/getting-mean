@@ -8,9 +8,9 @@ var ctrlOthers = require('../controllers/others');
 /* Locations pages */
 // define location routes and map them to controller functions
 router.get('/', ctrlLocations.homelist);
-router.get('/location', ctrlLocations.locationInfo);
-router.get('/location/review/new', ctrlLocations.addReview);
-
+router.get('/locations/:locationid', ctrlLocations.locationInfo);
+router.get('/locations/:locationid/reviews/new', ctrlLocations.addReview);
+router.post('/locations/:locationid/reviews/new', ctrlLocations.doAddReview);
 // var homepageController = function (req, res) {
 //   res.render('index',{title:'Express'});
 // };
