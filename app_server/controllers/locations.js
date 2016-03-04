@@ -20,7 +20,7 @@ var apiOptions = {
   server : "http://localhost:3000"
 };
 if (process.env.NODE_ENV === 'production') {
-  apiOptions.server = "https://stormy-everglades-97873.herokuapp.com/";//"https://getting-mean-loc8r.herokuapp.com
+  apiOptions.server = "https://stormy-everglades-97873.herokuapp.com";//"https://getting-mean-loc8r.herokuapp.com
 }
 /* GET 'home' page */
 var renderHomepage = function(req, res, responseBody){
