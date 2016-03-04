@@ -50,9 +50,10 @@ module.exports.locationsCreate = function(req, res) {
 module.exports.locationsListByDistance = function(req, res) {
   var lng = parseFloat(req.query.lng);
   var lat = parseFloat(req.query.lat);
+  console.log(lng + ", "+lat);
   var dist;
-  if (req.query.dist) {
-    dist = parseFloat(req.query.dist);
+  if (req.query.dis) {
+    dist = parseFloat(req.query.dis);
   } else {
     dist = 2000;
   }
@@ -79,8 +80,7 @@ module.exports.locationsListByDistance = function(req, res) {
     } else {
       results.forEach(function(doc) {
         locations.push({
-           distance: doc.dist/1000,
-
+          distance: doc.dis/1000,
           name: doc.obj.name,
           address: doc.obj.address,
           rating: doc.obj.rating,
@@ -135,7 +135,7 @@ module.exports.locationsUpdateOne = function(req, res) {
         if (err) {
           sendJsonResponse(res, 404, err);
         } else {
-        sendJsonResponse(res, 200, location);
+          sendJsonResponse(res, 200, location);
         }
       });
     }

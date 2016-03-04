@@ -25,7 +25,6 @@ if (process.env.NODE_ENV === 'production') {
 /* GET 'home' page */
 var renderHomepage = function(req, res, responseBody){
   var message;
-  console.log(responseBody+"isarray: "+responseBody instanceof Array);
   if (!(responseBody instanceof Array)) {
     message = "API lookup error";
     responseBody = [];
@@ -54,9 +53,9 @@ module.exports.homelist = function(req, res){
     method : "GET",
     json : {},
     qs : {
-        lng : -0.7992599,//-0.9630884
-        lat : 51.378091,//51.451041
-        maxDistance : 20
+        lng : -0.990884,//-0.9630884
+        lat : 51.451041,//51.451041
+        maxDistance : 2000
       }
   };
   request(
@@ -112,8 +111,8 @@ var getLocationInfo = function (req, res, callback) {
       var data = body;
       if (response.statusCode === 200) {
         data.coords = {
-        lng : body.coords[0],
-        lat : body.coords[1]
+          lng : body.coords[0],
+          lat : body.coords[1]
         };
         callback(req, res, data);
       } else {
