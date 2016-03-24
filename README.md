@@ -12,4 +12,4 @@ Also, on line 1 of layout.jade, "doctype 5" should be "doctype html" (the book's
 
 3/16: Previously, I was having some issues with mongorestore. I realized that I needed to be using mlab instead of mongolab due to the recent name change. Additionally, I was using the wrong 2dsphereindexVersion; I needed to be using version 1 or 2, instead the locations.json generated a version 3. For now, I could fix it by editing the .json, and managed to get the database updated just fine, but the version needs to be changed somewhere in code, I believe.
 
-3/23:
+3/23: Going through the book I didn't encounter many problems, except that I forgot to include the angular dependencies in layout.jade. Currently, I need to fix the header (it doesn't have the Amelia font for some reason), and I'll add some more locations to the database. Working with Angular presented a few problems from the beginning, but was otherwise fine, aside from my own mistakes in updating the dependencies as needed.
