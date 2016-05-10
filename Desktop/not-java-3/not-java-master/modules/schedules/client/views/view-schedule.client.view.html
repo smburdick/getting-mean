@@ -1,0 +1,26 @@
+<section>
+  <div class="page-header">
+    <!-- <h1 ng-bind="vm.schedule.classes"></h1> -->
+    <h1>Click <i class="glyphicon glyphicon-plus"></i> to add a class.</h1>
+  </div>
+  <div class="body">
+    <!-- ng-repeat thru all of the classes in the schedule -->
+  </div>
+  <div class="pull-right" ng-show="vm.schedule.isCurrentUserOwner">
+    <a class="btn btn-primary" ui-sref="schedules.edit({ scheduleId: vm.schedule._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+    <a class="btn btn-primary" ui-sref="schedules.addClass({ scheduleId: vm.schedule._id })">
+      <i class="glyphicon glyphicon-plus"></i>
+    </a>
+  </div>
+  <small>
+  <em class="text-muted">
+  Created on <span ng-bind="vm.schedule.created | date:'mediumDate'"></span> by <span ng-if="vm.schedule.user" ng-bind="vm.schedule.user.displayName"></span> <span ng-if="!vm.schedule.user">Deleted User</span>
+  </em>
+  </small>
+  <p class="lead" ng-bind="vm.schedule.content"></p>
+</section>

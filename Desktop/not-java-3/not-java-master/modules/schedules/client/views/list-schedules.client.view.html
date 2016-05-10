@@ -1,0 +1,14 @@
+<section>
+  <div class="page-header">
+    <h1>Schedules</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="schedule in vm.schedules" ui-sref="schedules.view({ scheduleId: schedule._id })" class="list-group-item">
+      <td>{{ vm.findTerm(schedule.term) }}</td>
+      <td>({{schedule.classes.length}} classes)</td>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.schedules.$resolved && !vm.schedules.length">
+    No schedules yet, why don't you <a ui-sref="schedules.create">create one</a>?
+  </div>
+</section>

@@ -1,0 +1,32 @@
+<section>
+  <div class="page-header">
+    <h1 >Add class to {{ vm.findTerm(vm.schedule.term) }} itenerary</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.addClassForm" class="form-horizontal" ng-submit="vm.addClass(vm.form.addClassForm.$isValid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="classes" >Department</label>
+          <select name="term"  type="select" ng-change="vm.resetDepartment()" data-ng-model="vm.coursesFromDepartment" class="form-control" required>
+            <option ng-repeat="department in vm.departments" value="{{ department.courses }}">{{ department.name }}</option>
+          </select>
+          <label class="control-label" for="classes">Course</label>
+          <select name="course" type="select" ng-change="vm.resetCourse()" data-ng-model="vm.sectionsFromCourse" class="form-control" required>
+            <option ng-repeat="course in vm.coursesToDisplay" value="{{ course.sections }}">{{ course.courseNumber}} - {{ course.name }}</option>
+          </select>
+          <label class="control-label" for="classes">Section</label>
+          <select name="section" type="select" data-ng-model="vm.selectedSection"  class="form-control" required>
+            <option ng-repeat="section in vm.sectionsToDisplay" value="{{section}}">{{ section.name }} - {{section.times[0].days}}, {{section.times[0].startTime}}-{{section.times[0].endTime}}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{ vm.schedule._id ? 'Add Class' : '' }}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>
