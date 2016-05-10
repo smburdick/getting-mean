@@ -1,0 +1,3 @@
+function CourseList(){
+  this.courses = [];
+}
